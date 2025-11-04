@@ -182,11 +182,68 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // ===================================
+    // EMAIL FORM HANDLING
+    // ===================================
+    const pilotForm = document.getElementById('pilot-form');
+    const emailInput = document.getElementById('email-input');
+    const formMessage = document.getElementById('form-message');
+
+    if (pilotForm) {
+        pilotForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+
+            // Basic validation
+            if (!email || !email.includes('@')) {
+                showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = pilotForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            try {
+                // For now, just show success message
+                // In production, you would send this to your backend
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                showMessage('✓ Thanks! We\'ll be in touch soon.', 'success');
+                emailInput.value = '';
+
+                // Optional: Send to a webhook or email service
+                // Example: fetch('YOUR_WEBHOOK_URL', { method: 'POST', body: JSON.stringify({ email }) })
+
+            } catch (error) {
+                showMessage('Something went wrong. Please try again.', 'error');
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    function showMessage(message, type) {
+        formMessage.textContent = message;
+        formMessage.className = `form-message ${type}`;
+
+        if (type === 'success') {
+            setTimeout(() => {
+                formMessage.textContent = '';
+                formMessage.className = 'form-message';
+            }, 5000);
+        }
+    }
+
+    // ===================================
     // CONSOLE EASTER EGG
     // ===================================
     console.log('%c🚀 Revertly AI', 'font-size: 24px; font-weight: bold; background: linear-gradient(269deg, #1D8BA9 3.05%, #6ABBD1 26.64%, #FF8E40 50.22%, #FF594F 97.4%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;');
     console.log('%cGit for AI Agents', 'font-size: 14px; color: #6ABBD1;');
-    console.log('%cInterested in our pilot program? Email us at founders@revertly.app', 'font-size: 12px; color: #888;');
+    console.log('%cInterested in our pilot program? Submit your email on the site!', 'font-size: 12px; color: #888;');
     
 });
 

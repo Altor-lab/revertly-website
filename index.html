@@ -221,7 +221,7 @@
                     How <span class="gradient-text-alt">It Works</span>
                 </h2>
                 <p class="section-description">
-                    Built by engineers who've seen this problem at Rubrik, Microsoft, and in production AI deployments
+                    Built by patent holders from Rubrik and Microsoft who invented data rollback technology
                 </p>
             </div>
 
@@ -314,12 +314,24 @@
             <div class="cta-content">
                 <h2 class="cta-title">Join Our Pilot Program</h2>
                 <p class="cta-description">UC San Diego Health and Singapore Airlines are already piloting. Limited spots available for Q1 2025.</p>
-                <div class="cta-actions">
-                    <a href="mailto:founders@revertly.app" class="btn btn-primary btn-large">Request Demo</a>
-                    <a href="mailto:founders@revertly.app" class="btn btn-secondary btn-large">Talk to Founders</a>
-                </div>
-                <p style="margin-top: 2rem; color: rgba(255, 255, 255, 0.5); font-size: 0.875rem;">
-                    founders@revertly.app
+
+                <form id="pilot-form" class="email-form" style="max-width: 500px; margin: 2rem auto;">
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            id="email-input"
+                            name="email"
+                            placeholder="Enter your work email"
+                            required
+                            class="email-input"
+                        />
+                        <button type="submit" class="btn btn-primary btn-large">Request Demo</button>
+                    </div>
+                    <p id="form-message" class="form-message"></p>
+                </form>
+
+                <p style="margin-top: 1.5rem; color: rgba(255, 255, 255, 0.5); font-size: 0.875rem;">
+                    Target: Companies using Salesforce Agentforce
                 </p>
             </div>
         </div>
@@ -333,7 +345,7 @@
                     <div class="footer-logo">Revertly AI</div>
                     <p class="footer-tagline">Git for AI Agents</p>
                     <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.5); font-size: 0.875rem;">
-                        Built by second-time founders from Rubrik, Microsoft, Zevi, and Cube HQ
+                        Built by patent holders from Rubrik and Microsoft
                     </p>
                 </div>
                 <div class="footer-links">
