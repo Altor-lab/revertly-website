@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     // SMOOTH SCROLLING FOR NAVIGATION
     // ===================================
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -31,6 +33,32 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    if (navToggle && mobileMenu) {
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', String(!expanded));
+            mobileMenu.hidden = expanded;
+            document.body.classList.toggle('menu-open', !expanded);
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.setAttribute('aria-expanded', 'false');
+                mobileMenu.hidden = true;
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !mobileMenu.hidden) {
+                navToggle.setAttribute('aria-expanded', 'false');
+                mobileMenu.hidden = true;
+                document.body.classList.remove('menu-open');
+            }
+        });
+    }
     
     // ===================================
     // SCROLL ANIMATIONS
@@ -186,6 +214,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     const pilotForm = document.getElementById('pilot-form');
     const emailInput = document.getElementById('email-input');
+    const nameInput = document.getElementById('name-input');
+    const companyInput = document.getElementById('company-input');
+    const contextInput = document.getElementById('context-input');
+    const privacyCheckbox = document.getElementById('privacy-checkbox');
     const formMessage = document.getElementById('form-message');
 
     if (pilotForm) {
@@ -193,10 +225,35 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
 
             const email = emailInput.value.trim();
+            const emailNormalized = email.toLowerCase();
+            const name = nameInput.value.trim();
+            const company = companyInput.value.trim();
+            const context = contextInput.value.trim();
+            const endpoint = (pilotForm.dataset.endpoint || '').trim();
 
             // Basic validation
-            if (!email || !email.includes('@')) {
+            if (!name) {
+                showMessage('Please add your full name so we know who to contact.', 'error', true);
+                return;
+            }
+
+            if (!company) {
+                showMessage('Please tell us which company or organization you represent.', 'error', true);
+                return;
+            }
+
+            if (!email || !email.includes('@') || emailNormalized.endsWith('@gmail.com') || emailNormalized.endsWith('@yahoo.com')) {
                 showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+
+            if (!context) {
+                showMessage('Share a short description of what your agents touch today.', 'error', true);
+                return;
+            }
+
+            if (!privacyCheckbox.checked) {
+                showMessage('Please acknowledge the pilot privacy notice.', 'error', true);
                 return;
             }
 
@@ -206,19 +263,34 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
 
+            const payload = {
+                name,
+                company,
+                email,
+                context,
+                timestamp: new Date().toISOString()
+            };
+
             try {
-                // For now, just show success message
-                // In production, you would send this to your backend
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                if (endpoint) {
+                    await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                } else {
+                    launchMailto(payload);
+                }
 
-                showMessage('✓ Thanks! We\'ll be in touch soon.', 'success');
-                emailInput.value = '';
-
-                // Optional: Send to a webhook or email service
-                // Example: fetch('YOUR_WEBHOOK_URL', { method: 'POST', body: JSON.stringify({ email }) })
-
+                showMessage('✓ Thanks! A founder will reach out within 48 hours.', 'success');
+                pilotForm.reset();
+                if (privacyCheckbox) {
+                    privacyCheckbox.checked = false;
+                }
             } catch (error) {
-                showMessage('Something went wrong. Please try again.', 'error');
+                console.error('Pilot form submission failed', error);
+                launchMailto(payload);
+                showMessage('✉️ We opened an email draft for you. Send it and a founder will respond quickly.', 'success', true);
             } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
@@ -226,11 +298,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function showMessage(message, type) {
+    function launchMailto({ name, company, email, context }) {
+        const subject = encodeURIComponent(`Revertly Pilot Request – ${company}`);
+        const body = encodeURIComponent(
+`Name: ${name}
+Company: ${company}
+Email: ${email}
+Agent footprint:
+${context}
+`
+        );
+        window.location.href = `mailto:founders@revertly.app?subject=${subject}&body=${body}`;
+    }
+
+    function showMessage(message, type, persistent = false) {
         formMessage.textContent = message;
         formMessage.className = `form-message ${type}`;
 
-        if (type === 'success') {
+        if (type === 'success' && !persistent) {
             setTimeout(() => {
                 formMessage.textContent = '';
                 formMessage.className = 'form-message';
@@ -274,4 +359,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-

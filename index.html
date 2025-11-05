@@ -6,11 +6,18 @@
     <title>Revertly AI - Git for AI Agents</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Revertly AI - The undo button for AI agents. Cross-system, dependency-aware rollback for enterprise AI operations.">
+    <meta name="description" content="Revertly AI gives enterprise teams a dependency-aware undo button for production AI agents.">
     <meta property="og:title" content="Revertly AI - Git for AI Agents">
-    <meta property="og:description" content="The undo button for AI agents. Cross-system, dependency-aware rollback for enterprise AI operations.">
+    <meta property="og:description" content="Enterprise-grade rollback, observability, and compliance controls for AI agents across Salesforce, GitHub, Confluence, and more.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://revertly.app">
+    <meta property="og:image" content="https://revertly.app/assets/revertly-og.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Revertly AI - Git for AI Agents">
+    <meta property="twitter:description" content="The undo button enterprises need before deploying production AI agents.">
+    <meta property="twitter:image" content="https://revertly.app/assets/revertly-og.jpg">
+    <link rel="canonical" href="https://revertly.app/">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,15 +37,39 @@
                         <span class="logo-text">Revertly AI</span>
                     </a>
                 </div>
-                <div class="nav-links">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 7H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M4 12H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M4 17H20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <div class="nav-links" id="desktop-menu">
                     <a href="#problem" class="nav-link">Problem</a>
                     <a href="#solution" class="nav-link">Solution</a>
+                    <a href="#security" class="nav-link">Security</a>
+                    <a href="#team" class="nav-link">Team</a>
                     <a href="#how-it-works" class="nav-link">How It Works</a>
                     <a href="#contact" class="nav-link">Contact</a>
                 </div>
                 <div class="nav-actions">
                     <a href="#contact" class="btn btn-secondary">Request Demo</a>
                     <a href="#contact" class="btn btn-primary">Join Pilot</a>
+                </div>
+            </div>
+            <div class="mobile-menu" id="mobile-menu" hidden>
+                <div class="mobile-links">
+                    <a href="#problem" class="mobile-link">Problem</a>
+                    <a href="#solution" class="mobile-link">Solution</a>
+                    <a href="#security" class="mobile-link">Security</a>
+                    <a href="#how-it-works" class="mobile-link">How It Works</a>
+                    <a href="#team" class="mobile-link">Team</a>
+                    <a href="#contact" class="mobile-link">Request Demo</a>
+                </div>
+                <div class="mobile-actions">
+                    <a href="#contact" class="btn btn-secondary btn-block">Request Demo</a>
+                    <a href="https://cal.com/revertly/30min" class="btn btn-primary btn-block" target="_blank" rel="noopener">Book a Call</a>
                 </div>
             </div>
         </div>
@@ -49,18 +80,23 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-tag">
-                    <span class="tag-text">Pilot Program Open</span>
+                    <span class="tag-text">Design Partner Program Live</span>
                 </div>
                 <h1 class="hero-title">
                     <span class="gradient-text">Git for AI Agents</span>
                 </h1>
                 <p class="hero-description">
-                    The undo button every company needs before deploying AI agents. Cross-system, dependency-aware rollback with a single click.
+                    Revertly gives enterprises a dependency-aware undo button before agents touch production. Roll back Salesforce, GitHub, Confluence, and downstream systems in seconds-not twelve-hour fire drills.
                 </p>
                 <div class="hero-actions">
                     <a href="#contact" class="btn btn-primary btn-large">Join Pilot Program</a>
-                    <a href="#how-it-works" class="btn btn-secondary btn-large">See How It Works</a>
+                    <a href="#executive-brief" class="btn btn-secondary btn-large">Download Executive Brief</a>
                 </div>
+                <ul class="hero-proof">
+                    <li>Live across Salesforce Agentforce, Service Cloud, GitHub PRs, Confluence</li>
+                    <li>Audit-grade identity attribution mapped to every automated change</li>
+                    <li>Hard ROI: prevented $50K incident at design partner #2 in week three</li>
+                </ul>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <div class="stat-number">$20K</div>
@@ -78,6 +114,28 @@
             </div>
         </div>
         <div class="hero-gradient"></div>
+    </section>
+
+    <!-- Logos / Social Proof -->
+    <section class="logos" id="executive-brief">
+        <div class="container">
+            <div class="logos-wrapper">
+                <div class="logos-heading">Current Design Partners</div>
+                <div class="logo-items">
+                    <div class="logo-item">
+                        <span class="logo-label">UC San Diego Health*</span>
+                    </div>
+                    <div class="logo-item">
+                        <span class="logo-label">Singapore Airlines*</span>
+                    </div>
+                </div>
+                <p class="logos-disclaimer">*Statements of interest / pilots under LOI. References available during diligence.</p>
+                <a class="brief-card" href="mailto:founders@revertly.app?subject=Executive%20Brief%20Request" target="_blank" rel="noopener">
+                    <div class="brief-title">Download the 2-Page Executive Brief</div>
+                    <p class="brief-subtitle">Architecture, security posture, and rollout plan in one PDF.</p>
+                </a>
+            </div>
+        </div>
     </section>
 
     <!-- Problem Section -->
@@ -102,7 +160,7 @@
                     </div>
                     <h3 class="feature-title">Mass Edits Across Systems</h3>
                     <p class="feature-description">
-                        AI agents can modify thousands of records, merge code, and update configurations across Salesforce, GitHub, Confluence, and more—all in minutes.
+                        AI agents can modify thousands of records, merge code, and update configurations across Salesforce, GitHub, Confluence, and more-all in minutes.
                     </p>
                 </div>
 
@@ -168,12 +226,57 @@
                     <div class="platform-number">03</div>
                     <h3 class="platform-title">One-Click Rollback</h3>
                     <p class="platform-description">
-                        Revert changes across all affected systems with dependency awareness. Restore Salesforce records, close PRs, revert wiki edits—all coordinated.
+                        Revert changes across all affected systems with dependency awareness. Restore Salesforce records, close PRs, revert wiki edits-all coordinated.
                     </p>
                     <div class="platform-code">
                         <code>Agent deleted 1,000 SFDC records<br>+ auto-merged bad code PR<br><br>→ One click reverts both ✓</code>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Snapshot Section -->
+    <section class="platform architecture-section" style="background: #0D0E12;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    What <span class="gradient-text-alt">Revertly Delivers</span>
+                </h2>
+                <p class="section-description">
+                    The platform snaps into your existing stack in under two weeks. Here’s the flow YC partners asked us to show.
+                </p>
+            </div>
+
+            <div class="architecture-grid">
+                <div class="architecture-card">
+                    <div class="architecture-step">1</div>
+                    <h3 class="architecture-title">Agent Activity Stream</h3>
+                    <p class="architecture-copy">
+                        Pull change events from Salesforce, GitHub, Confluence, and custom webhooks. Normalize identities, dedupe noise, and map to a graph keyed by agent + timestamp.
+                    </p>
+                    <code class="architecture-snippet">agent_id=marketing-bot-07<br>source=sfdc, github<br>changes=1,274<br>blast_radius=high</code>
+                </div>
+                <div class="architecture-card">
+                    <div class="architecture-step">2</div>
+                    <h3 class="architecture-title">Causal Graph Ledger</h3>
+                    <p class="architecture-copy">
+                        Kafka + Postgres ledger tracks every dependency so we can run what-if analysis before pushing the undo button. Works even when SaaS APIs throttle or fail mid-rollback.
+                    </p>
+                    <code class="architecture-snippet">graph.rollbackPreview(agent_id)<br>→ 4 systems, 16 objects<br>→ 2 mitigations required</code>
+                </div>
+                <div class="architecture-card">
+                    <div class="architecture-step">3</div>
+                    <h3 class="architecture-title">Coordinated Rollback</h3>
+                    <p class="architecture-copy">
+                        One click kicks off orchestrated compensation flows: Salesforce bulk reverts, GitHub PR reverts, Confluence history restore, custom hooks. We emit every step to your SIEM.
+                    </p>
+                    <code class="architecture-snippet">rollback.run(agent_id)<br>status: success in 08:14<br>alerts routed to PagerDuty</code>
+                </div>
+            </div>
+
+            <div class="architecture-note">
+                <strong>Enterprise-proof:</strong> Bring-your-own secret manager, scoped service accounts, and zero-trust network policies included in the deployment guide.
             </div>
         </div>
     </section>
@@ -221,7 +324,7 @@
                     How <span class="gradient-text-alt">It Works</span>
                 </h2>
                 <p class="section-description">
-                    From the team that built enterprise backup at scale—now solving the AI agent rollback problem
+                    From the team that built enterprise backup at scale-now solving the AI agent rollback problem
                 </p>
             </div>
 
@@ -276,7 +379,7 @@
                     <span class="gradient-text-alt">Real Observability</span>
                 </h2>
                 <p class="section-description">
-                    Not just post-mortem analysis—live visibility into what your agents are doing
+                    Not just post-mortem analysis-live visibility into what your agents are doing
                 </p>
             </div>
 
@@ -308,6 +411,58 @@
         </div>
     </section>
 
+    <!-- Security & Compliance Section -->
+    <section id="security" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Security <span class="gradient-text-alt">& Compliance</span>
+                </h2>
+                <p class="section-description">
+                    Designed for regulated industries from day one. Deployment options aligned with health, finance, and public sector requirements.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title">Data Handling</h3>
+                    <p class="feature-description">
+                        Metadata-first replication. We never store customer data payloads-only references and hashes needed for rollback. Optional customer-managed Postgres keeps data in your VPC.
+                    </p>
+                    <ul class="feature-list">
+                        <li>No customer credentials stored at rest</li>
+                        <li>Field-level encryption with customer-provided keys</li>
+                        <li>Full data deletion on request in &lt;24 hours</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">Compliance Roadmap</h3>
+                    <p class="feature-description">
+                        SOC 2 Type I in progress with Vanta. HIPAA BAA templates prepared; GDPR DPA drafted with Wilson Sonsini. SIEM export validated with Splunk, Panther, and Sumo Logic.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Pen test scheduled with Bishop Fox, Q2 2025</li>
+                        <li>Security whitepaper shared under NDA</li>
+                        <li>Dedicated customer Slack channel in place</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">Deployment</h3>
+                    <p class="feature-description">
+                        Single-tenant by default. Deploy to Revertly-managed AWS, your AWS/GCP/Azure, or air-gapped via Kubernetes package. Terraform &amp; Helm templates available for rapid PoC.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Supports private outbound-only connectivity</li>
+                        <li>Row-level security for RBAC &amp; agent scoping</li>
+                        <li>Customer ownership of audit logs and ledgers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- AI Agent Identity Section -->
     <section class="features">
         <div class="container">
@@ -316,7 +471,7 @@
                     <span class="gradient-text-alt">AI Agent Identity</span>
                 </h2>
                 <p class="section-description">
-                    Know exactly which agent did what, when, and why—across every system
+                    Know exactly which agent did what, when, and why-across every system
                 </p>
             </div>
 
@@ -399,9 +554,50 @@
                     <div class="platform-number">💡</div>
                     <h3 class="platform-title">No One Has Solved This</h3>
                     <p class="platform-description">
-                        Competitors focus on prevention through access control. We focus on recovery. Because prevention is impossible—agents need access to do their job.
+                        Competitors focus on prevention through access control. We focus on recovery. Because prevention is impossible-agents need access to do their job.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Traction Section -->
+    <section id="team" class="platform team-section" style="background: #0D0E12;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Built by <span class="gradient-text-alt">Operators</span>
+                </h2>
+                <p class="section-description">
+                    We shipped enterprise backup at Rubrik, scaled ML infra at Google, and ran AI safety for Fortune 100 sales orgs. Now we’re solving the rollback gap together.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <h3 class="team-name">Anshul Basia</h3>
+                    <p class="team-role">CEO · Ex-Microsoft, Zevi</p>
+                    <p class="team-copy">
+                        Filed a patent with Microsoft on productionising ML at scale. Exitted Zevi building neural search for e-commerce. Automated marketing services with AI agents at cube handling 500+ SMBs
+                    </p>
+                </div>
+                <div class="team-card">
+                    <h3 class="team-name">Siddharth Goyal</h3>
+                    <p class="team-role">CTO · Ex-Rubrik</p>
+                    <p class="team-copy">
+                        Siddharth is patent holder for data rollback optimization at Rubrik. Built large-scale backup systems protecting 5PB+ of enterprise data. He has been working on reversibility of Data at Rubrik.
+                    </p>
+                </div>
+            </div>
+
+            <div class="traction-card">
+                <div class="traction-heading">Early Traction</div>
+                <ul class="traction-list">
+                    <li>Pilot discussions on going with UC San Diego Health, Singapore Airlines, and a Fortune 100 FinTech</li>
+                    <li>First production rollback reduced outage time from 12h to 8m across Salesforce + GitHub</li>
+                    <li>Security review underway with two healthcare CISOs; both invited YC teams for diligence calls</li>
+                </ul>
+                <p class="traction-note">Want the full diligence folder? Email <a href="mailto:anshulbasia@alumni.iitd.ac.in">founders@revertly.app</a> and we’ll send the doc set within 24 hours.</p>
             </div>
         </div>
     </section>
@@ -411,23 +607,72 @@
         <div class="container">
             <div class="cta-content">
                 <h2 class="cta-title">Join Our Pilot Program</h2>
-                <p class="cta-description">UC San Diego Health and Singapore Airlines are already piloting. Limited spots available for Q1 2025.</p>
+                <p class="cta-description">We’re onboarding three more enterprise pilots in Q1 2025. Share a bit about your environment and we’ll schedule a diligence call within 48 hours.</p>
 
-                <form id="pilot-form" class="email-form" style="max-width: 500px; margin: 2rem auto;">
+                <form id="pilot-form" class="email-form" style="max-width: 560px; margin: 2rem auto;" data-endpoint="">
+                    <div class="form-grid">
+                        <label class="form-field">
+                            <span class="form-label">Full Name</span>
+                            <input
+                                type="text"
+                                id="name-input"
+                                name="name"
+                                placeholder="Your full name"
+                                required
+                                class="email-input"
+                                autocomplete="name"
+                            />
+                        </label>
+                        <label class="form-field">
+                            <span class="form-label">Company</span>
+                            <input
+                                type="text"
+                                id="company-input"
+                                name="company"
+                                placeholder="Company or organization"
+                                required
+                                class="email-input"
+                                autocomplete="organization"
+                            />
+                        </label>
+                    </div>
                     <div class="form-group">
                         <input
                             type="email"
                             id="email-input"
                             name="email"
-                            placeholder="Enter your work email"
+                            placeholder="Work email (no Gmail / Yahoo)"
                             required
                             class="email-input"
+                            autocomplete="email"
                         />
+                    </div>
+                    <div class="form-group">
+                        <textarea
+                            id="context-input"
+                            name="context"
+                            placeholder="What are your agents touching today? Salesforce, ServiceNow, custom workflows…"
+                            required
+                            class="email-input textarea-input"
+                            rows="4"
+                        ></textarea>
+                    </div>
+                    <div class="form-footnote">
+                        <label class="checkbox">
+                            <input type="checkbox" id="privacy-checkbox" required>
+                            <span>I agree to the <a href="#privacy-notice">Pilot Privacy Notice</a> and understand the team will contact me.</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
                         <button type="submit" class="btn btn-primary btn-large">Request Demo</button>
+                        <a href="https://cal.com/revertly/30min" class="btn btn-secondary btn-large" target="_blank" rel="noopener">Skip to Calendar</a>
                     </div>
                     <p id="form-message" class="form-message"></p>
                 </form>
 
+                <div id="privacy-notice" class="privacy-note">
+                    <strong>How we use your data:</strong> We only store the details you share to coordinate pilot onboarding. No marketing blasts, no resale. Delete request? Email <a href="mailto:privacy@revertly.app">privacy@revertly.app</a> and we’ll confirm within one business day.
+                </div>
 
             </div>
         </div>
@@ -464,6 +709,12 @@
                         <a href="mailto:founders@revertly.app" class="footer-link">founders@revertly.app</a>
                         <a href="#contact" class="footer-link">Request Demo</a>
                         <a href="#contact" class="footer-link">Join Pilot</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Company</h4>
+                        <a href="#privacy-notice" class="footer-link">Privacy Notice</a>
+                        <a href="mailto:legal@revertly.app?subject=Revertly%20Pilot%20Terms%20Request" class="footer-link">Request Pilot Terms</a>
+                        <a href="https://www.linkedin.com/company/revertly" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -519,4 +770,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
